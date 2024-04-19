@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Recetas</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="filtro">
+      <label for="filtroRecetas">Filtrar recetas:</label>
+      <input type="text" id="filtroRecetas" placeholder="Buscar receta..." />
+    </div>
+    <div class="container">
+      <div class="recetas">
+        <h2>Recetas</h2>
+        <ul id="lista-recetas"></ul>
+      </div>
+      <!-- Dentro del div con la clase "container" -->
+      <div class="comida">
+        <h2>Comida</h2>
+        <ul id="lista-comida"></ul>
+      </div>
+      <div class="lista-compra">
+        <h2>Lista de la compra</h2>
+        <button id="resetListaCompra">Reset</button>
+        <table id="tabla-compra">
+          <thead>
+            <tr>
+              <th>Comida</th>
+              <th>Cantidad</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

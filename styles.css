@@ -1,0 +1,44 @@
+.receta {
+    max-width: 300px;
+    margin: 0 auto;
+  }
+  
+  .receta h2 {
+    text-align: center;
+  }
+  
+  .receta ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .receta li {
+    margin-bottom: 10px;
+  }
+  
+  .btn-anadir {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 8px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-left: 10px;
+    cursor: pointer;
+  }
+
+  .btn-quitar {
+    background-color: #af4c4c;
+    border: none;
+    color: white;
+    padding: 8px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-left: 10px;
+    cursor: pointer;
+  }
+  
