@@ -1,81 +1,34 @@
 {
   "recetas": [
     {
-      "nombre": "Torta de Chocolate",
-      "ingredientes": [
-        { "nombre": "Harina", "cantidad": 250 },
-        { "nombre": "Azúcar", "cantidad": 200 },
-        { "nombre": "Cacao en polvo", "cantidad": 50 },
-        { "nombre": "Huevos", "cantidad": 3 },
-        { "nombre": "Leche", "cantidad": 150 },
-        { "nombre": "Aceite", "cantidad": 100 }
-      ]
+      "nombre": "Ensalada de Pollo",
+      "ingredientes": ["Lechuga", "Tomate", "Pollo", "Cebolla"]
     },
     {
-      "nombre": "Torta",
-      "ingredientes": [
-        { "nombre": "Harina", "cantidad": 250 },
-        { "nombre": "Huevos", "cantidad": 3 },
-        { "nombre": "Leche", "cantidad": 150 },
-        { "nombre": "Aceite", "cantidad": 100 }
-      ]
+      "nombre": "Tortilla de Patata",
+      "ingredientes": ["Patata", "Huevo", "Cebolla", "Aceite"]
     },
     {
-      "nombre": "Ensalada César",
-      "ingredientes": [
-        { "nombre": "Lechuga romana", "cantidad": 1 },
-        { "nombre": "Pollo", "cantidad": 200 },
-        { "nombre": "Pan tostado", "cantidad": 50 },
-        { "nombre": "Queso parmesano", "cantidad": 50 },
-        { "nombre": "Aderezo César", "cantidad": 100 }
-      ]
+      "nombre": "Sopa de Verduras",
+      "ingredientes": ["Calabacín", "Zanahoria", "Cebolla", "Apio"]
     },
     {
-      "nombre": "Sopa de Tomate",
-      "ingredientes": [
-        { "nombre": "Tomates", "cantidad": 500 },
-        { "nombre": "Cebolla", "cantidad": 1 },
-        { "nombre": "Ajo", "cantidad": 2 },
-        { "nombre": "Caldo de verduras", "cantidad": 750 },
-        { "nombre": "Aceite de oliva", "cantidad": 30 },
-        { "nombre": "Sal", "cantidad": 5 },
-        { "nombre": "Pimienta", "cantidad": 2 }
-      ]
+      "nombre": "Pasta con Atún",
+      "ingredientes": ["Pasta", "Atún", "Tomate", "Aceitunas"]
     }
   ],
   "comida": [
     {
-      "categoria": "Aves",
-      "ingredientes": ["Pollo", "Pavo"]
+      "categoria": "proteina",
+      "ingredientes": ["Huevo", "Pollo", "Atún"]
     },
     {
-      "categoria": "Carnes",
-      "ingredientes": ["Ternera", "Hamburguesa", "Cazón", "Gallineta"]
+      "categoria": "vegetales",
+      "ingredientes": ["Cebolla", "Lechuga", "Tomate", "Zanahoria"]
     },
     {
-      "categoria": "Pescados",
-      "ingredientes": ["Bacalao", "Merluza", "Atún"]
-    },
-    {
-      "categoria": "Huevos y lácteos",
-      "ingredientes": ["Huevo", "Ensalada"]
-    },
-    {
-      "categoria": "Vegetales",
-      "ingredientes": [
-        "Caldo",
-        "Judía verde",
-        "Judía blanca",
-        "Garbanzos",
-        "Lentejas",
-        "Espinacas",
-        "Guisantes",
-        "Setas",
-        "Escalivada",
-        "Espárragos verdes",
-        "Espárragos blancos",
-        "Pasta vegetal"
-      ]
+      "categoria": "otros",
+      "ingredientes": ["Aceite", "Calabacín", "Pasta", "Apio", "Aceitunas"]
     }
   ]
 }

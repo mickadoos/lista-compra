@@ -1,11 +1,23 @@
 document.addEventListener("DOMContentLoaded", function () {
+  var recetasTitle = document.getElementById("recetas-title");
   var listaRecetas = document.getElementById("lista-recetas");
+  var comidaTitle = document.getElementById("comida-title");
   var listaComida = document.getElementById("lista-comida");
   var tablaCompra = document
     .getElementById("tabla-compra")
     .getElementsByTagName("tbody")[0];
   var filtroComidasInput = document.getElementById("filtroComidas");
   var resetListaCompraBtn = document.getElementById("resetListaCompra");
+
+  // Agregar evento de clic para la columna de recetas
+  recetasTitle.addEventListener("click", function () {
+    listaRecetas.classList.toggle("active");
+  });
+
+  // Agregar evento de clic para la columna de comida
+  comidaTitle.addEventListener("click", function () {
+    listaComida.classList.toggle("active");
+  });
 
   // Función para agregar ingredientes a la lista de la compra
   function agregarIngredienteAListaCompra(nombre, cantidad) {
@@ -187,11 +199,10 @@ document.addEventListener("DOMContentLoaded", function () {
     tablaCompra.innerHTML = ""; // Vaciar la tabla de la lista de compra
   });
 
-
   function descargarListaCompra() {
     // Obtener la tabla de la compra
     var tablaCompra = document.getElementById("tabla-compra");
-  
+
     // Crear el contenido del archivo de texto
     var contenido = "Lista de la compra:\n\n";
     for (var i = 0; i < tablaCompra.rows.length; i++) {
@@ -200,29 +211,28 @@ document.addEventListener("DOMContentLoaded", function () {
       var cantidad = fila.cells[1].textContent;
       contenido += `${comida}\t${cantidad}\n`;
     }
-  
+
     // Crear un Blob con el contenido de texto
     var blob = new Blob([contenido], { type: "text/plain;charset=utf-8" });
-  
+
     // Crear un objeto URL a partir del Blob
     var url = URL.createObjectURL(blob);
-  
+
     // Crear un enlace para descargar el archivo
     var enlace = document.createElement("a");
     enlace.href = url;
     enlace.download = "lista_de_compra.txt";
     enlace.style.display = "none";
-  
+
     // Agregar el enlace al documento y hacer clic en él
     document.body.appendChild(enlace);
     enlace.click();
-  
+
     // Liberar el objeto URL
     URL.revokeObjectURL(url);
   }
-  
+
   // Asociar la función de descarga al botón de descarga
   var btnDescargar = document.getElementById("btnDescargar");
   btnDescargar.addEventListener("click", descargarListaCompra);
-  
 });

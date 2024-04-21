@@ -26,6 +26,16 @@ body {
   margin-top: 0;
 }
 
+/* Estilo inicial para las listas de recetas y comida */
+.accordion-content {
+  display: none;
+}
+
+/* Estilo para mostrar la lista cuando la clase active está presente */
+.accordion-content.active {
+  display: block;
+}
+
 /* Estilos para el filtro */
 .filtro {
   margin: 10px;
@@ -126,5 +136,27 @@ body {
   .comida,
   .lista-compra {
     margin: 10px 0;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .lista-compra {
+    order: 2; /* Colocar la lista de la compra al final */
+    width: 100%; /* Ocupar todo el ancho disponible */
+  }
+
+  .recetas{
+    order: 1; /* Mantener las columnas de recetas y comida arriba */
+    width: 100%; /* Ocupar todo el ancho disponible */
+  }
+
+  .comida {
+    order: 3; /* Mantener las columnas de recetas y comida arriba */
+    width: 100%; /* Ocupar todo el ancho disponible */
   }
 }

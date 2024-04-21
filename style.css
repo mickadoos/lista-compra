@@ -1,0 +1,9 @@
+/* Estilo inicial para las listas de recetas y comida */
+.accordion-content {
+  display: none;
+}
+
+/* Estilo para mostrar la lista cuando la clase active está presente */
+.accordion-content.active {
+  display: block;
+}

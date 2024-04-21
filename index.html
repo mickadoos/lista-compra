@@ -4,7 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Recetas</title>
-    <link rel="stylesheet" href="styles.css" />
+    <!-- <link rel="stylesheet" href="styles.css" /> -->
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <div class="filtro">
@@ -13,13 +14,13 @@
     </div>
     <div class="container">
       <div class="recetas">
-        <h2>Recetas</h2>
-        <ul id="lista-recetas"></ul>
+        <h2 id="recetas-title" class="accordion-title">Recetas</h2>
+        <ul id="lista-recetas" class="accordion-content"></ul>
       </div>
       <!-- Dentro del div con la clase "container" -->
       <div class="comida">
-        <h2>Comida</h2>
-        <ul id="lista-comida"></ul>
+        <h2 id="comida-title" class="accordion-title">Comida</h2>
+        <ul id="lista-comida" class="accordion-content"></ul>
       </div>
       <div class="lista-compra">
         <h2>Lista de la compra</h2>
