@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Recetas</title>
     <!-- <link rel="stylesheet" href="styles.css" /> -->
+    <link rel="stylesheet" href="reset.css" />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -12,15 +13,17 @@
       <label for="filtroComidas">Filtrar comidas:</label>
       <input type="text" id="filtroComidas" placeholder="Buscar comida..." />
     </div>
-    <div class="container">
-      <div class="recetas">
-        <h2 id="recetas-title" class="accordion-title">Recetas</h2>
-        <ul id="lista-recetas" class="accordion-content"></ul>
-      </div>
-      <!-- Dentro del div con la clase "container" -->
-      <div class="comida">
-        <h2 id="comida-title" class="accordion-title">Comida</h2>
-        <ul id="lista-comida" class="accordion-content"></ul>
+    <div class="container-listas">
+      <div class="container">
+        <div class="recetas">
+          <h2 id="recetas-title" class="accordion-title">Recetas</h2>
+          <ul id="lista-recetas" class="accordion-content"></ul>
+        </div>
+        <!-- Dentro del div con la clase "container" -->
+        <div class="comida">
+          <h2 id="comida-title" class="accordion-title">Comida</h2>
+          <ul id="lista-comida" class="accordion-content"></ul>
+        </div>
       </div>
       <div class="lista-compra">
         <h2>Lista de la compra</h2>
@@ -37,7 +40,6 @@
         </table>
       </div>
     </div>
-
     <script src="script.js"></script>
   </body>
 </html>

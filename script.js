@@ -199,6 +199,18 @@ document.addEventListener("DOMContentLoaded", function () {
     tablaCompra.innerHTML = ""; // Vaciar la tabla de la lista de compra
   });
 
+  // Evento para resetear el valor del input al hacer clic fuera de él
+  document.addEventListener("click", function (event) {
+    // Verificar si se hizo clic fuera del input de filtro
+    if (event.target !== filtroComidasInput) {
+      // Resetear el valor del input
+      filtroComidasInput.value = "";
+
+      // Volver a cargar las listas de comida y recetas
+      cargarRecetasYComida();
+    }
+  });
+
   function descargarListaCompra() {
     // Obtener la tabla de la compra
     var tablaCompra = document.getElementById("tabla-compra");
