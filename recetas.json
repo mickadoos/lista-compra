@@ -1,34 +1,84 @@
 {
   "recetas": [
     {
-      "nombre": "Ensalada de Pollo",
-      "ingredientes": ["Lechuga", "Tomate", "Pollo", "Cebolla"]
+      "nombre": "Ensalada César",
+      "ingredientes": [
+        { "nombre": "Aderezo César", "cantidad": 100 },
+        { "nombre": "Lechuga romana", "cantidad": 1 },
+        { "nombre": "Pan tostado", "cantidad": 50 },
+        { "nombre": "Pollo", "cantidad": 200 },
+        { "nombre": "Queso parmesano", "cantidad": 50 }
+      ]
     },
     {
-      "nombre": "Tortilla de Patata",
-      "ingredientes": ["Patata", "Huevo", "Cebolla", "Aceite"]
+      "nombre": "Sopa de Tomate",
+      "ingredientes": [
+        { "nombre": "Aceite de oliva", "cantidad": 30 },
+        { "nombre": "Ajo", "cantidad": 2 },
+        { "nombre": "Caldo de verduras", "cantidad": 750 },
+        { "nombre": "Cebolla", "cantidad": 1 },
+        { "nombre": "Pimienta", "cantidad": 2 },
+        { "nombre": "Sal", "cantidad": 5 },
+        { "nombre": "Tomates", "cantidad": 500 }
+      ]
     },
     {
-      "nombre": "Sopa de Verduras",
-      "ingredientes": ["Calabacín", "Zanahoria", "Cebolla", "Apio"]
+      "nombre": "Torta",
+      "ingredientes": [
+        { "nombre": "Aceite", "cantidad": 100 },
+        { "nombre": "Harina", "cantidad": 250 },
+        { "nombre": "Huevos", "cantidad": 3 },
+        { "nombre": "Leche", "cantidad": 150 }
+      ]
     },
     {
-      "nombre": "Pasta con Atún",
-      "ingredientes": ["Pasta", "Atún", "Tomate", "Aceitunas"]
+      "nombre": "Torta de Chocolate",
+      "ingredientes": [
+        { "nombre": "Aceite", "cantidad": 100 },
+        { "nombre": "Azúcar", "cantidad": 200 },
+        { "nombre": "Cacao en polvo", "cantidad": 50 },
+        { "nombre": "Harina", "cantidad": 250 },
+        { "nombre": "Huevos", "cantidad": 3 },
+        { "nombre": "Leche", "cantidad": 150 }
+      ]
     }
   ],
   "comida": [
     {
-      "categoria": "proteina",
-      "ingredientes": ["Huevo", "Pollo", "Atún"]
+      "categoria": "Proteina",
+      "ingredientes": [
+        "Atún",
+        "Bacalao",
+        "Cazón",
+        "Gallineta",
+        "Hamburguesa",
+        "Pavo",
+        "Pollo",
+        "Ternera"
+      ]
     },
     {
-      "categoria": "vegetales",
-      "ingredientes": ["Cebolla", "Lechuga", "Tomate", "Zanahoria"]
+      "categoria": "Vegetales",
+      "ingredientes": [
+        "Ensalada",
+        "Espárragos blancos",
+        "Espárragos verdes",
+        "Espinacas",
+        "Guisantes",
+        "Judía blanca",
+        "Judía verde"
+      ]
     },
     {
-      "categoria": "otros",
-      "ingredientes": ["Aceite", "Calabacín", "Pasta", "Apio", "Aceitunas"]
+      "categoria": "Otros",
+      "ingredientes": [
+        "Caldo",
+        "Escalivada",
+        "Garbanzos",
+        "Lentejas",
+        "Pasta vegetal",
+        "Setas"
+      ]
     }
   ]
 }
