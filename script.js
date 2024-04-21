@@ -12,11 +12,13 @@ document.addEventListener("DOMContentLoaded", function () {
   // Agregar evento de clic para la columna de recetas
   recetasTitle.addEventListener("click", function () {
     listaRecetas.classList.toggle("active");
+    recetasTitle.classList.toggle("active"); // Agregar o quitar la clase "active" al título
   });
 
   // Agregar evento de clic para la columna de comida
   comidaTitle.addEventListener("click", function () {
     listaComida.classList.toggle("active");
+    comidaTitle.classList.toggle("active"); // Agregar o quitar la clase "active" al título
   });
 
   // Función para agregar ingredientes a la lista de la compra
@@ -39,9 +41,11 @@ document.addEventListener("DOMContentLoaded", function () {
       var fila = tablaCompra.insertRow();
       var celdaComida = fila.insertCell(0);
       var celdaCantidad = fila.insertCell(1);
+      var celdaButtons = fila.insertCell(2);
       celdaComida.textContent = nombre;
       celdaCantidad.textContent = cantidad;
       celdaCantidad.className = "cantidad"; // Añadir una clase para identificar la celda de cantidad
+      celdaButtons.className = "buttonsDiv";
 
       // Añadir botones "+" y "-" para incrementar y decrementar la cantidad
       var btnIncrementar = document.createElement("button");
@@ -67,8 +71,8 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       });
 
-      fila.appendChild(btnIncrementar);
-      fila.appendChild(btnDecrementar);
+      celdaButtons.appendChild(btnIncrementar);
+      celdaButtons.appendChild(btnDecrementar);
     }
   }
 
@@ -96,13 +100,16 @@ document.addEventListener("DOMContentLoaded", function () {
           var listItem = document.createElement("li");
           var buttonAdd = document.createElement("button");
           var buttonSub = document.createElement("button");
+          var divButtons = document.createElement("div");
           buttonAdd.textContent = "+";
           buttonSub.textContent = "-";
           buttonAdd.className = "btn-anadir";
           buttonSub.className = "btn-quitar";
+          divButtons.className = "buttons";
           listItem.textContent = receta.nombre;
-          listItem.appendChild(buttonAdd);
-          listItem.appendChild(buttonSub);
+          divButtons.appendChild(buttonAdd);
+          divButtons.appendChild(buttonSub);
+          listItem.appendChild(divButtons);
           listaRecetas.appendChild(listItem);
 
           buttonAdd.addEventListener("click", function () {
@@ -176,7 +183,7 @@ document.addEventListener("DOMContentLoaded", function () {
     Array.from(recetas).forEach(function (receta) {
       var nombreReceta = receta.textContent.toLowerCase();
       if (nombreReceta.includes(filtroTexto)) {
-        receta.style.display = "block";
+        receta.style.display = "flex";
       } else {
         receta.style.display = "none";
       }
@@ -187,7 +194,7 @@ document.addEventListener("DOMContentLoaded", function () {
     Array.from(comida).forEach(function (ingrediente) {
       var nombreIngrediente = ingrediente.textContent.toLowerCase();
       if (nombreIngrediente.includes(filtroTexto)) {
-        ingrediente.style.display = "block";
+        ingrediente.style.display = "flex";
       } else {
         ingrediente.style.display = "none";
       }
@@ -202,7 +209,12 @@ document.addEventListener("DOMContentLoaded", function () {
   // Evento para resetear el valor del input al hacer clic fuera de él
   document.addEventListener("click", function (event) {
     // Verificar si se hizo clic fuera del input de filtro
-    if (event.target !== filtroComidasInput) {
+    if (
+      event.target !== filtroComidasInput &&
+      !event.target.closest("#lista-recetas") &&
+      !event.target.closest(".categoria-container") &&
+      !event.target.closest("#tabla-compra")
+    ) {
       // Resetear el valor del input
       filtroComidasInput.value = "";
 
@@ -217,11 +229,28 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Crear el contenido del archivo de texto
     var contenido = "Lista de la compra:\n\n";
+
+    // Obtener la cantidad máxima de caracteres en la columna de comida
+    var maxCaracteresComida = 0;
+    for (var i = 0; i < tablaCompra.rows.length; i++) {
+      var fila = tablaCompra.rows[i];
+      var comida = fila.cells[0].textContent;
+      if (comida.length > maxCaracteresComida) {
+        maxCaracteresComida = comida.length;
+      }
+    }
+
+    // Recorrer las filas y agregar el contenido con las cantidades alineadas
     for (var i = 0; i < tablaCompra.rows.length; i++) {
       var fila = tablaCompra.rows[i];
       var comida = fila.cells[0].textContent;
       var cantidad = fila.cells[1].textContent;
-      contenido += `${comida}\t${cantidad}\n`;
+
+      // Calcular la cantidad de espacios necesarios para alinear las cantidades
+      var espacios = " ".repeat(maxCaracteresComida - comida.length + 2); // Se añade 2 espacios adicionales
+
+      // Agregar la comida y la cantidad alineadas
+      contenido += `${comida}${espacios}${cantidad}\n`;
     }
 
     // Crear un Blob con el contenido de texto
@@ -244,7 +273,67 @@ document.addEventListener("DOMContentLoaded", function () {
     URL.revokeObjectURL(url);
   }
 
+  function enviarListaCompraPorWhatsApp(numeroWhatsApp) {
+    console.log(numeroWhatsApp);
+    var tablaCompra = document.getElementById("tabla-compra");
+    var mensaje = "```Lista de la compra:\n\n";
+
+    // Obtener la cantidad máxima de caracteres en la columna de comida
+    var maxCaracteresComida = 0;
+    for (var i = 0; i < tablaCompra.rows.length; i++) {
+      var fila = tablaCompra.rows[i];
+      var comida = fila.cells[0].textContent;
+      if (comida.length > maxCaracteresComida) {
+        maxCaracteresComida = comida.length;
+      }
+    }
+    console.log("max characters: ", maxCaracteresComida);
+    // Recorrer las filas y agregar el contenido con las cantidades alineadas
+    for (var i = 1; i < tablaCompra.rows.length; i++) {
+      var fila = tablaCompra.rows[i];
+      var comida = fila.cells[0].textContent;
+      var cantidad = fila.cells[1].textContent;
+
+      // Calcular la cantidad de espacios necesarios para alinear las cantidades
+      var espacios = " ".repeat(maxCaracteresComida - comida.length + 2); // Se añade 2 espacios adicionales
+
+      // Agregar la comida y la cantidad alineadas
+      mensaje += `${comida}${espacios}${cantidad}\n`;
+    }
+
+    mensaje += "```";
+
+    console.log(mensaje);
+
+    // Reemplaza 'NUMERO_DE_WHATSAPP' con el número al que deseas enviar el mensaje
+    // var numeroWhatsApp = "685347771";
+
+    // Generar el enlace de WhatsApp con el mensaje predefinido
+    var linkWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensaje)}`;
+
+    // Abrir el enlace en una nueva ventana o pestaña
+    window.open(linkWhatsApp);
+  }
+
+  // Obtener los botones por su ID y asociar el evento a cada uno
+  var btnAlana = document.getElementById("btnAlana");
+  var btnYabel = document.getElementById("btnYabel");
+
+  // Agregar evento para enviar la lista de compra por WhatsApp cuando se hace clic en el botón de Alana
+  btnAlana.addEventListener("click", function () {
+    enviarListaCompraPorWhatsApp(btnAlana.dataset.valor);
+  });
+
+  // Agregar evento para enviar la lista de compra por WhatsApp cuando se hace clic en el botón de Yabel
+  btnYabel.addEventListener("click", function () {
+    enviarListaCompraPorWhatsApp(btnYabel.dataset.valor);
+  });
+
   // Asociar la función de descarga al botón de descarga
   var btnDescargar = document.getElementById("btnDescargar");
   btnDescargar.addEventListener("click", descargarListaCompra);
+
+  // // Asociar la función de descarga al botón de descarga
+  // var enviarPorWhatsAppBtn = document.getElementById("enviarPorWhatsAppBtn");
+  // enviarPorWhatsAppBtn.addEventListener("click", enviarListaCompraPorWhatsApp);
 });

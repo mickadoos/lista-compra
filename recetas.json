@@ -45,39 +45,29 @@
   ],
   "comida": [
     {
-      "categoria": "Proteina",
+      "categoria": "Ingredientes",
       "ingredientes": [
         "Atún",
         "Bacalao",
+        "Caldo",
         "Cazón",
-        "Gallineta",
-        "Hamburguesa",
-        "Pavo",
-        "Pollo",
-        "Ternera"
-      ]
-    },
-    {
-      "categoria": "Vegetales",
-      "ingredientes": [
         "Ensalada",
+        "Escalivada",
         "Espárragos blancos",
         "Espárragos verdes",
         "Espinacas",
-        "Guisantes",
-        "Judía blanca",
-        "Judía verde"
-      ]
-    },
-    {
-      "categoria": "Otros",
-      "ingredientes": [
-        "Caldo",
-        "Escalivada",
+        "Gallineta",
         "Garbanzos",
+        "Guisantes",
+        "Hamburguesa",
+        "Judía blanca",
+        "Judía verde",
         "Lentejas",
         "Pasta vegetal",
-        "Setas"
+        "Pavo",
+        "Pollo",
+        "Setas",
+        "Ternera"
       ]
     }
   ]

@@ -1,3 +1,24 @@
+/* Estilos para el filtro */
+.filtro {
+  font-family: Arial, sans-serif; /* Fuente */
+  background-color: #f2f2f2; /* Color de fondo */
+  padding: 10px; /* Espaciado interno */
+  border-radius: 5px; /* Bordes redondeados */
+  margin-bottom: 20px; /* Margen inferior */
+}
+
+.filtro label {
+  font-weight: bold; /* Texto en negrita */
+  margin-right: 10px; /* Margen derecho entre el texto y el input */
+}
+
+.filtro input[type="text"] {
+  padding: 5px; /* Espaciado interno del input */
+  border: 1px solid #ccc; /* Borde del input */
+  border-radius: 3px; /* Bordes redondeados */
+  width: 200px; /* Ancho del input */
+}
+
 /* Estilo inicial para las listas de recetas y comida */
 .accordion-content {
   display: block;
@@ -8,13 +29,13 @@
   display: none;
 }
 
-.container .comida{
+.container .comida {
   margin: 20px 0;
 }
 .container-listas {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 20px;
+  gap: 10px;
 }
 
 h2 {
@@ -27,119 +48,126 @@ h3 {
   font-size: medium;
 }
 
+/* Estilos para los títulos de Recetas y Comida */
+.accordion-title::after {
+  content: "\25BC"; /* Unicode para la flecha hacia abajo */
+  display: inline-block;
+  margin-left: 5px; /* Espacio entre el texto y la flecha */
+  transition: transform 0.3s; /* Transición para el giro de la flecha */
+}
+
+.accordion-title.active::after {
+  transform: rotate(
+    180deg
+  ); /* Girar la flecha hacia arriba cuando la lista esté activa */
+}
+
+
+#btnAlana::after,
+#btnYabel::after {
+  content: \1F4F1;
+}
+/* ------------------------------------------- */
+
+.categoria-container ul li {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid rgb(218, 218, 218);
+}
+
+#lista-recetas li {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid rgb(218, 218, 218);
+}
+
+.lista-compra {
+  min-width: 180px;
+}
+
+.buttons,
+.buttonsDiv {
+  min-width: 55px;
+}
+
+.buttons button,
+.buttonsDiv button {
+  margin-right: 3px;
+}
+.cantidad {
+  text-align: center;
+}
+
+li {
+  margin-bottom: 5px;
+}
+
+th {
+  font-weight: bold;
+}
+tr td,
+tr div {
+  border: 1px solid rgb(218, 218, 218);
+}
 
 /* ------------------------------------------- */
 
-body {
-  font-family: Arial, sans-serif;
-  background-color: #f7f7f7;
-  color: #333;
-}
-
-.container-listas {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  gap: 20px;
-}
-
-.container {
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.filtro {
-  margin-bottom: 20px;
-}
-
-label {
-  font-weight: bold;
-}
-
-input[type="text"] {
-  padding: 8px;
-  border-radius: 4px;
-  border: 1px solid #ccc;
-  width: 100%;
-  max-width: 300px;
-}
-
-ul {
-  list-style: none;
-}
-
+/* Estilos para los botones */
 button {
-  padding: 8px 16px;
-  border-radius: 4px;
+  padding: 4px 8px;
+  background-color: #4caf50;
+  color: white;
   border: none;
-  background-color: #007bff;
-  color: #fff;
+  border-radius: 5px;
   cursor: pointer;
+  font-size: 16px;
+  margin-bottom: 10px;
+  transition: background-color 0.3s ease;
 }
 
-.btn-anadir,
-.btn-incrementar {
-  background-color: #2dc453;
+button:hover {
+  background-color: #45a049;
 }
 
 .btn-quitar,
 .btn-decrementar {
-  background-color: #d42f2f;
+  background-color: #af4c4c;
 }
 
-button:hover {
-  background-color: #25aa46;
+.btn-quitar:hover,
+.btn-decrementar:hover {
+  background-color: #a04545;
 }
 
-button:active {
-  background-color: #25aa46;
-  transform: translateY(1px);
+#resetListaCompra {
+  background-color: #a7a7a7;
 }
 
-.btn-quitar:hover, .btn-decrementar:hover {
-  background-color: #a72222;
+#resetListaCompra:hover {
+  background-color: #747474;
 }
 
-.btn-quitar:active, .btn-decrementar:active {
-  background-color: #a72222;
-  transform: translateY(1px);
+#btnDescargar {
+  background-color: #4c6faf;
 }
 
-table {
-  width: 100%;
-  border-collapse: collapse;
+#btnDescargar:hover {
+  background-color: #455da0;
+
+}
+/* Estilos para el texto */
+p,
+span,
+label,
+h2,
+h3 {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #333;
 }
 
-th, td {
-  padding: 8px;
-  border-bottom: 1px solid #ddd;
-  text-align: left;
-}
-
-th {
-  background-color: #b3d8ff;
-  color: #fff;
-}
-
-tbody tr:nth-child(even) {
-  background-color: #f2f2f2;
-}
-
-
-
-
-/* Estilo para los botones de las listas */
-li {
-  display: flex;
-  align-items: center;
-}
-
-li button {
-  margin-left: 2px; /* Ajusta la distancia entre el texto y los botones */
-}
-
-/* Estilo para los nombres de las categorías */
-.categoria-container h3 {
-  margin-bottom: 10px; /* Ajusta la distancia entre los títulos y la lista de ingredientes */
+/* Estilos específicos para los títulos */
+h2,
+h3 {
+  font-weight: bold;
 }
