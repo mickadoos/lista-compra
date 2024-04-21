@@ -69,6 +69,11 @@ h3 {
 }
 /* ------------------------------------------- */
 
+#tabla-compra {
+  max-width: 100%; /* Establece un ancho máximo para la tabla */
+  width: auto; /* Permite que el ancho se ajuste automáticamente según el contenido */
+}
+
 .categoria-container ul li {
   display: flex;
   justify-content: space-between;
@@ -81,13 +86,9 @@ h3 {
   border: 1px solid rgb(218, 218, 218);
 }
 
-.lista-compra {
-  min-width: 180px;
-}
-
 .buttons,
 .buttonsDiv {
-  min-width: 55px;
+  min-width: 53px;
 }
 
 .buttons button,
